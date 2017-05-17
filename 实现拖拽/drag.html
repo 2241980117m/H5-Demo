@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>H5实现拖拽</title>
+	<style type="text/css">
+	body,html{
+		margin:0;
+		padding: 0;
+	}
+	body {
+    text-align: center;
+    padding: 14rem;
+}
+	#dragDes {
+    border: 1px solid black;
+    width: 15rem;
+ /*    float: left; */
+    height: 9rem;
+    margin-left: 11rem;
+}
+	#drag1 {
+    width: 15rem;
+    height: 9rem;
+/*     float: left; */
+}
+	</style>
+		<script type="text/javascript">
+        function drag(ev){
+        	ev.dataTransfer.setData('Text',event.target.id);
+        }
+        function dragPrevent(ev){
+        	ev.preventDefault();
+        }
+        function drop(ev){
+        
+        	ev.preventDefault();
+
+        	//var data=ev.dataTransfer.getData('Text');
+        	var data=ev.dataTransfer.getData("Text");
+        	console.log(data);
+            ev.target.appendChild(document.getElementById(data));
+        	//ev.target.appendChild(document.getElementById(data));
+        }
+	</script>
+</head>
+<body>
+	
+	
+	<div id="dragDes" ondrop="drop(event)" ondragover="dragPrevent(event)">
+		
+	</div>
+    <img src="1.jpg" draggable="true" ondragstart="drag(event)" id="drag1">
+	
+</body>
+</html>
+

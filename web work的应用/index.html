@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>web work的应用</title>
+	<style type="text/css">
+      #startCount,#stopCount{
+      	width: 50px;
+      	height: 20px;
+      	background-color: blue;
+      }
+	</style>
+	<script type="text/javascript">
+	function start(){
+       var result=document.getElementById("result");
+       if(typeOf Worker != 'undefined'){
+       	  int w;
+       	  if(typeOf w == 'undefined'){
+       	  		w = new worker("");
+       	  }
+            w.onmessage = function(event){
+            	result.innerHTML = event.data;
+            }
+       	 
+       }else{
+       	result.innerHTML = "此浏览器不支持web worker";
+       }
+   }
+       function stop(){
+       	   w.terminate();
+       }
+	</script>
+</head>
+<body>
+	 <p>计数: <output id="result"></output>	</p>
+	 <div id="startCount" onclick="start();">
+	 	开始计数
+	 </div>
+	 <div id="stopCount" onclick="stop();">停止计数</div>
+</body>
+</html>

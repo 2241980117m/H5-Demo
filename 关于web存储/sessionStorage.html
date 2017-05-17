@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>localStorage</title>
+	<script type="text/javascript">
+       var result = document.getElementById("result");
+     
+       		if(localStorage.pageCount){
+       			localStorage.setItem("pageCount",Number(localStorage.getItem("pageCount"))+1);
+       			//localStorage.pageCount=Number(localStorage.pageCount)+1;
+       		}else{
+       			//localStorage.pageCount=1;
+       			localStorage.setItem("pageCount",1);
+       		}
+       		/*result.innerHTML="您已经第"+localStorage.pageCount+"次访问页面了";*/
+       		document.write("Visits: " + localStorage.getItem("pageCount") + " time(s).");
+       
+	</script>
+</head>
+<body>
+    <!-- 在这里显示访问页面的次数
+    	<div id="result"></div>	 -->
+</body>
+</html>
+<!-- <!DOCTYPE HTML>
+<html>
+<body>
+
+<script type="text/javascript">
+
+if (localStorage.pagecount)
+	{
+	localStorage.pagecount=Number(localStorage.pagecount) +1;
+	}
+else
+	{
+	localStorage.pagecount=1;
+	}
+document.write("Visits: " + localStorage.pagecount + " time(s).");
+
+</script> 
+
+<p>刷新页面会看到计数器在增长。</p>
+
+<p>请关闭浏览器窗口，然后再试一次，计数器会继续计数。</p>
+
+</body>
+</html> -->
